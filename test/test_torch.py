@@ -6413,7 +6413,7 @@ class TestTorchDeviceType(TestCase):
 
     def test_logical_not(self, device):
         for dtype in torch.testing.get_all_dtypes():
-            a = torch.tensor([10, 1, 0], dtype=dtype, device=device)
+            a = torch.tensor([10, 1, 0.3, 0, -0.3, -1, -10], dtype=dtype, device=device)
             if dtype == torch.bfloat16 or dtype.is_complex:
                 self.assertRaises(RuntimeError, lambda: a.logical_not())
                 continue
